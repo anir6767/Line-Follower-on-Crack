@@ -1,0 +1,30 @@
+# Prototype
+
+This is the first version of my line follower. The goal is to get the basic hardware working before moving on to a custom PCB and chassis.
+
+For this prototype, I'll be using the components I already have instead of designing everything from scratch immediately.
+
+## Hardware
+
+* ESP32 development board
+* QTR-8RC line sensor
+* L298N motor driver
+* Two DC motors
+* Battery and connecting wires
+
+## Goals
+
+* Get the QTR-8RC sensor working with the ESP32.
+* Read the sensor values and check how it responds to black and white surfaces.
+* Get both motors running through the L298N.
+* Combine the sensor and motor systems.
+* Implement a basic PID controller for line following.
+* Test the robot and record what works and what needs improvement.
+
+## Why start with a prototype?
+
+I want to test the basic idea and understand the hardware before designing a custom PCB. This should help me find wiring or software problems early instead of having to debug everything after making the PCB.
+
+## Status
+
+The prototype is currently in development. I'll update this section as I complete each stage and add test results.
