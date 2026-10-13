@@ -1,87 +1,80 @@
 # Line Follower on Crack
 
-A line-following robot that I'm building from scratch, with the goal of making it fast, precise, and capable of handling complex tracks using PID control.
+A high-performance line-following robot developed through embedded programming, sensor integration, motor control, and PID tuning.
 
----
+## Overview
 
-## What is it?
+Line Follower on Crack is a line-following robot project designed to achieve fast, accurate, and reliable line tracking. The project combines an ESP32-based control system, reflectance sensors, and a dual-motor driver to detect a line and adjust the robot's movement in real time.
 
-Basically, an LFR, but I want to take it a bit further than the usual Arduino line follower.
+The complete working prototype serves as the foundation for the next stage of development: designing a custom PCB to integrate the electronics into a more compact and reliable system.
 
-The plan is to build a robot that can follow lines smoothly using PID, handle sharp turns, navigate intersections and loops, and hopefully do all of this at pretty high speeds without constantly losing the line.
+## Current Features
 
-I'll be starting with a prototype using the hardware I already have, then eventually move on to designing my own PCB and 3D-printing a custom chassis.
+- **ESP32-based control:** Processes sensor readings and controls the robot's movement.
+- **Reflectance sensing:** Detects the line using a QTR-8RC sensor array.
+- **Dual-motor drive:** Controls two DC gear motors through an L298N motor driver.
+- **PID control:** Adjusts motor behaviour based on the robot's position relative to the line.
+- **Modular hardware:** Uses separate electronic modules for easier testing, maintenance, and debugging.
 
-The project is still in its early stages, so a lot of things will change as I experiment and figure stuff out.
+## Hardware
 
----
+| Component | Purpose |
+|---|---|
+| ESP32 development board | Main controller |
+| QTR-8RC sensor array | Line detection |
+| L298N motor driver | Motor direction and speed control |
+| 2 × DC gear motors | Robot propulsion |
+| Chassis and wheels | Mechanical structure |
+| Battery pack | Power supply |
 
-## Why I built this
+## Software
 
-I've wanted to get into PCB design and 3D design for a while, but I haven't really had a proper project to learn them through.
+The firmware is written in Arduino-style C/C++ for the ESP32 platform.
 
-I also want to understand PID control properly instead of just copying some code from the internet and hoping it works.
+Its main responsibilities include:
+- Reading the reflectance sensors.
+- Calculating the robot's position relative to the line.
+- Applying PID-based corrections.
+- Adjusting motor speed and direction.
+- Keeping the robot on the line during operation.
 
-So I decided to build an LFR that would force me to learn all three: PCB design, CAD, and PID tuning.
+## Development Process
 
-I'm taking some inspiration from projects like [GRUZIK LineFollower 3.0](https://github.com/NYDEREK/LineFollower_GRUZIK3.0), but I'm not trying to clone it. I want to make my own version, figure out the electronics and chassis myself, and learn along the way.
+The prototype development phase includes:
 
----
+1. Assembling the robot chassis and electronics.
+2. Establishing the sensor and motor-driver connections.
+3. Developing and debugging the firmware.
+4. Tuning the PID controller for line-following behaviour.
+5. Testing the integrated prototype.
 
-## Planned Features
+## Custom PCB — Next Stage
 
-* **PID line following** — Smoothly adjust motor speeds based on sensor readings instead of just turning left or right.
-* **Precise movement** — Tune the PID controller to reduce wobbling and make the robot follow the line more accurately.
-* **Intersections and loops** — Work on detecting intersections and handling different track layouts without getting confused.
-* **Sharp turns** — Try to maintain control through tight corners without flying off the track.
-* **Custom PCB** — Design my own PCB in KiCad instead of relying entirely on separate modules.
-* **Custom chassis** — Design a chassis in CAD that fits all the components and works well with the robot.
-* **Speed tuning** — Once the robot follows the line reliably, push the speed while trying to maintain control.
+The working prototype currently uses separate modules and wiring. The next stage is to design a custom PCB that brings the electronic connections together into a cleaner, more compact layout.
 
-These are goals for the project, not features that are already finished.
-
----
 
 ## Repository Structure
 
 ```text
 Line-Follower-on-Crack/
 ├── README.md
-├── prototype/
-├── pcb/
-├── cad/
-└── docs/
+└── prototype/
 ```
 
-* `prototype/` — Initial code, wiring, and experiments.
-* `pcb/` — KiCad schematic and PCB files.
-* `cad/` — Chassis designs and 3D files.
-* `docs/` — Development journal, notes, and test results.
+Firmware, wiring documentation, test records, and PCB design files will be organised into the repository as the project documentation is expanded.
 
-I'll add the actual files as I work on each part.
+## Project Status
 
----
+- [x] Prototype hardware assembly
+- [x] Firmware development and debugging
+- [x] PID tuning
+- [x] Prototype integration
+- [ ] Custom PCB schematic and layout
+- [ ] PCB manufacturing and validation
+- [ ] Integration and testing of the custom PCB
 
-## Tools
+## Design Goals
 
-* Arduino IDE — Writing and testing the code
-* KiCad — PCB design
-* FreeCAD — 3D chassis design
-* GitHub — Keeping track of everything
+The project focuses on modular development, reliable control, clean hardware integration, and measurable improvements in line-following performance.
 
----
-
-## Current Status
-
-* [x] Created the GitHub repository
-* [ ] Build the first prototype
-* [ ] Get the sensors working
-* [ ] Get the motors working
-* [ ] Implement PID
-* [ ] Tune the robot
-* [ ] Test intersections and loops
-* [ ] Design the PCB
-* [ ] Design the chassis
-* [ ] Put everything together and test it
-
-More updates coming as I make progress.
+The prototype establishes the working system; the custom PCB is the next step toward a more integrated robot.
