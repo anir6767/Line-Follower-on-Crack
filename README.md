@@ -59,6 +59,7 @@ The working prototype currently uses separate modules and wiring. The next stage
 Line-Follower-on-Crack/
 ├── README.md
 └── prototype/
+└── pcb main/
 ```
 
 Firmware, wiring documentation, test records, and PCB design files will be organised into the repository as the project documentation is expanded.
